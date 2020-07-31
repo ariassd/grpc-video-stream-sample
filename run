@@ -1,0 +1,21 @@
+#!/bin/bash
+WHITE='\033[1;39m'
+RED="\033[1;31m"
+GREEN='\033[1;32m'
+DEFAULT='\033[1;39m'
+YELLOW='\033[1;93m'
+MAGENTA='\033[1;95m'
+
+script=$1
+if [ -z "$script" ]; then
+    printf "${MAGENTA} Available scripts"; echo;
+    
+    for entry in `ls ./.scripts/`; do
+        echo $"- $entry"
+    done
+
+    printf "${GREEN}  Enter name of the script file ${YELLOW} > "
+    read script
+fi
+
+sh $"./.scripts/$script.sh" $2 $3 $4 $5 $6 $7 $8 $9

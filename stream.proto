@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package stream_service;
+
+service StreamService {
+  rpc getStream (EmptyRequest) returns (stream Response);
+}
+
+message EmptyRequest {}
+
+message Response {
+  bytes stream = 1;
+  int32 chnum = 2;
+}
